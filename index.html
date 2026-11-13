@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aruthalpuram LM church - Member Management UI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --bg-color: #F3F4F6;
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --accent-green: #10B981;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #E5E7EB; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .app-container { width: 100%; max-width: 390px; height: 844px; background-color: var(--bg-color); position: relative; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border-radius: 40px; border: 12px solid #111827; display: flex; flex-direction: column; }
+        .header { background-color: var(--primary); color: white; padding: 40px 20px 20px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header-brand { display: flex; align-items: center; gap: 10px; }
+        .header-brand i { font-size: 1.5rem; }
+        .header h1 { font-size: 1.15rem; font-weight: 600; }
+        .header-icons i { margin-left: 15px; font-size: 1.2rem; cursor: pointer; }
+        .content { flex: 1; overflow-y: auto; padding: 20px; }
+        .card { background: var(--card-bg); border-radius: 16px; padding: 16px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .attendance-btn { background-color: var(--accent-green); color: white; width: 100%; padding: 14px; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: background 0.2s ease; }
+        .attendance-btn:hover { background-color: #059669; }
+        .section-title { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.8px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .stat-box { background: #EEF2FF; padding: 16px; border-radius: 12px; text-align: center; }
+        .stat-box h3 { color: var(--primary); font-size: 1.75rem; margin-bottom: 4px; }
+        .stat-box p { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; }
+        .menu-list { list-style: none; }
+        .menu-list li { display: flex; align-items: center; padding: 14px 0; border-bottom: 1px solid #F3F4F6; color: var(--text-main); font-weight: 500; cursor: pointer; }
+        .menu-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .menu-list li i { color: var(--primary); font-size: 1.25rem; width: 35px; text-align: center; background: #EEF2FF; padding: 8px; border-radius: 8px; margin-right: 12px; }
+        .bottom-nav { background: var(--card-bg); display: flex; justify-content: space-around; padding: 16px 10px 24px 10px; border-top: 1px solid #E5E7EB; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 0.75rem; font-weight: 500; gap: 6px; cursor: pointer; }
+        .nav-item.active { color: var(--primary); }
+        .nav-item i { font-size: 1.3rem; }
+        .content::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="header-brand">
+                <i class="fas fa-church"></i>
+                <h1>Aruthalpuram LM church</h1>
+            </div>
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-bell"></i>
+            </div>
+        </div>
+        <div class="content">
+            <div class="card">
+                <button class="attendance-btn" onclick="alert('Location tracked. Attendance marked!')">
+                    <i class="fas fa-map-marker-alt"></i> I'm Here (Ya llegué)
+                </button>
+                <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">
+                    Location services enabled for Sunday Service.
+                </p>
+            </div>
+            <h2 class="section-title">Weekly Summary</h2>
+            <div class="card stat-grid">
+                <div class="stat-box"><h3>342</h3><p>Total Members</p></div>
+                <div class="stat-box"><h3>12</h3><p>New Believers</p></div>
+                <div class="stat-box"><h3>28</h3><p>Pastoral Visits</p></div>
+                <div class="stat-box"><h3>$4.2k</h3><p>Finances</p></div>
+            </div>
+            <h2 class="section-title">Administration</h2>
+            <div class="card">
+                <ul class="menu-list">
+                    <li><i class="fas fa-id-card"></i> Member Directory</li>
+                    <li><i class="fas fa-qrcode"></i> QR Code Attendance</li>
+                    <li><i class="fas fa-book-bible"></i> Sunday Bible School</li>
+                    <li><i class="fas fa-hand-holding-heart"></i> Pastoral Care & Follow-up</li>
+                    <li><i class="fas fa-clipboard-list"></i> Service Plans & Liturgy</li>
+                    <li><i class="fas fa-chart-pie"></i> Financial Reports</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item active"><i class="fas fa-home"></i><span>Home</span></div>
+            <div class="nav-item"><i class="fas fa-calendar-alt"></i><span>Events</span></div>
+            <div class="nav-item"><i class="fas fa-comments"></i><span>Community</span></div>
+            <div class="nav-item"><i class="fas fa-user-circle"></i><span>Profile</span></div>
+        </div>
+    </div>
+</body>
+</html>
